@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Usuario</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Agregar Usuario</h1>
+    <div class="container">
+        <form action="/add" method="POST">
+            <input type="text" placeholder="Nombres" id="nombres" name="nombres" required>
+            <br>
+            <input type="text" placeholder="Apellidos" id="apellidos" name="apellidos" required>
+            <br>
+            <input type="text" placeholder="Número de Cuenta" id="numero_cuenta" name="numero_cuenta" required>
+            <br>
+            <input type="number" placeholder="Edad" id="edad" name="edad" required>
+            <br>
+            <select id="genero" name="genero" required>
+                <option value="" disabled selected>Género</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <br>
+            <input type="text" placeholder="Carrera" id="carrera" name="carrera" required>
+            <br>
+            <input type="text" placeholder="Teléfono" id="telefono" name="telefono" required>
+            <br>
+            <div class="below">
+                <button type="submit">Agregar</button>
+                <a href="/">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
