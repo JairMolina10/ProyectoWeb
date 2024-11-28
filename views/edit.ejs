@@ -3,42 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Usuarios</title>
+    <title>Editar Usuario</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Lista de Usuarios</h1>
-    <br>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Número de Cuenta</th>
-            <th>Edad</th>
-            <th>Género</th>
-            <th>Carrera</th>
-            <th>Teléfono</th>
-            <th>Acciones</th>
-        </tr>
-        <% users.forEach(user => { %>
-            <tr>
-                <td><%= user.id %></td>
-                <td><%= user.nombres %></td>
-                <td><%= user.apellidos %></td>
-                <td><%= user.numero_cuenta %></td>
-                <td><%= user.edad %></td>
-                <td><%= user.genero %></td>
-                <td><%= user.carrera %></td>
-                <td><%= user.telefono %></td>
-                <td>
-                    <a href="/edit/<%= user.id %>">Editar</a>
-                    <a href="/delete/<%= user.id %>">Eliminar</a>
-                </td>
-            </tr>
-        <% }); %>
-    </table>
-    <br>
-    <a href="/add">Agregar Usuario</a>
+    <h1>Editar Usuario</h1>
+    <div class="container">
+        <form action="/edit/<%= user.id %>" method="POST">
+            <input type="text" name="nombres" placeholder="Nombres" value="<%= user.nombres %>" required>
+            <br>
+            <input type="text" name="apellidos" placeholder="Apellidos" value="<%= user.apellidos %>" required>
+            <br>
+            <input type="text" name="numero_cuenta" placeholder="Número de Cuenta" value="<%= user.numero_cuenta %>" required>
+            <br>
+            <input type="number" name="edad" placeholder="Edad" value="<%= user.edad %>" required>
+            <br>
+            <select name="genero" required>
+                <option value="" disabled>Género</option>
+                <option value="Masculino" <%= user.genero === "Masculino" ? "selected" : "" %>>Masculino</option>
+                <option value="Femenino" <%= user.genero === "Femenino" ? "selected" : "" %>>Femenino</option>
+                <option value="Otro" <%= user.genero === "Otro" ? "selected" : "" %>>Otro</option>
+            </select>
+            <br>
+            <input type="text" name="carrera" placeholder="Carrera" value="<%= user.carrera %>" required>
+            <br>
+            <input type="text" name="telefono" placeholder="Teléfono" value="<%= user.telefono %>" required>
+            <br>
+            <button type="submit">Actualizar</button>
+            <a href="/">Cancelar</a>
+        </form>
+    </div>
 </body>
 </html>
